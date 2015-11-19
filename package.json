@@ -1,0 +1,21 @@
+{
+  "name": "menu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:ravins/menu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-autoprefixer": "^3.0.2",
+    "gulp-connect": "^2.2.0",
+    "gulp-livereload": "^3.8.0",
+    "gulp-sass": "^2.0.4"
+  }
+}
