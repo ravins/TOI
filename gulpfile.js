@@ -27,7 +27,7 @@ gulp.task('sass', function(){
       outputStyle: 'expanded',
       includePaths: ['./bower_components/bootstrap-sass/assets/stylesheets']
     }).on('error', sass.logError))
-    .pipe(gulp.dest('./assets/css/atigeo'))
+    .pipe(gulp.dest('./assets/css'))
     .pipe(connect.reload())
 });
 
