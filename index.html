@@ -25,6 +25,11 @@ background-color: #000;
         <a class="navbar-brand" href="#">TOI API</a>
       </div>
     </div>
+    <div class="spinner" id="global-loader">
+      <div class=" double-bounce1"></div>
+      <div class=" double-bounce2"></div>
+      <span class="loading"> Loading... </span>
+    </div>
   </nav>
   <div class="container" ng-app="app">
     <div ui-view=""></div>
@@ -32,10 +37,18 @@ background-color: #000;
 
  <script type="text/javascript" src="bower_components/angularjs/angular.min.js"></script>
  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+ <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+
+
  <script type="text/javascript" src="src/js/app.js"></script>
- <script type="text/javascript" src="src/js/services/api.js"></script>
  <script type="text/javascript" src="src/js/router.js"></script>
+
+ <!-- services -->
+ <script type="text/javascript" src="src/js/services/api.js"></script>
+
+ <!-- controllers -->
  <script type="text/javascript" src="src/js/controllers/home.js"></script>
  <script type="text/javascript" src="src/js/controllers/catagory.js"></script>
+
 </body>
 </html>
