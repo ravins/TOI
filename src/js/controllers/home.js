@@ -4,7 +4,8 @@ angular.module('app').controller('home', ['$scope', 'API', function($scope, API)
   vm.name = "ravins"
 
   vm.getSubCatagories = function(url) {
-    API.getTOIData(url).then(function(subCatagories) {
+    API.getTOIData(url).then(function(news) {
+      vm.newsItems = news.query.results.json.NewsItem
       debugger
     });
   }
@@ -12,7 +13,5 @@ angular.module('app').controller('home', ['$scope', 'API', function($scope, API)
   API.getData('feedurllist.cms',{'catagory':'city'}).then(function(catagories) {
     vm.catagories = catagories;
   });
-Sorry for delay (as it's hard to get other work done while in/after JOB), I'm currently working on to make application with TOI API.
-
 
 }])

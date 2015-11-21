@@ -1,6 +1,10 @@
-angular.module('app').service('API', ['$http', 'API_URL', function($http, API_URL) {
+angular.module('app').service('API', ['$http', 'API_URL', 'YQL', function($http, API_URL, YQL) {
   function Api(){
     this.currentCatagoryUrl = "";
+
+    createselectQuery = function(url) {
+      return YQL+'?q='+encodeURIComponent('select * from json where url="'+url+'"')+'&format=json'
+    }
 
     this.getData = function(url, options) {
       options = options || {};
@@ -14,8 +18,14 @@ angular.module('app').service('API', ['$http', 'API_URL', function($http, API_UR
       // return promise object
       return $http.get(API_URL+"/"+request)
     }
+
     this.getTOIData = function(url) {
-      return $http.get(url)
+      var request = "";
+      debugger
+      if(url){
+        request = createselectQuery(url)
+      }
+      return $.getJSON(request)
     }
 
     console.log(API_URL)

@@ -12,11 +12,17 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function($
     views: {
       '':{
           templateUrl: 'src/js/templates/layout.html',
-          controller: 'catagory',
-          controllerAs: 'catagoryCtrl'
+          controller: 'news',
+          controllerAs: 'newsCtrl',
+          resolve: {
+                   news: ['API','$stateParams', function(API, $stateParams) {
+                       return API.getSubCatagories('/recipes/' + $stateParams.catagory)
+                              .then(function(data) { return data.data; });
+                   }]
+               }
         },
       'sidebar@catagory':{templateUrl: 'src/js/templates/sidebar.html'},
-      'content@catagory':{templateUrl: 'src/js/templates/catagory.html'}
+      'content@catagory':{templateUrl: 'src/js/templates/news.html'}
     }
   })
 
