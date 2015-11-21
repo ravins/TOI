@@ -7,28 +7,34 @@ angular.module('app').run(['$http', function($http){
   $http.defaults.headers.common.Accept = 'application/json';
   $http.defaults.headers = {'Access-Control-Allow-Origin' : '*'};
 
-  $http.defaults.headers.get = {'X-Mashape-Key': 'geSCWZkl7qmshvzcNYECQpmSeepVp1LqLqdjsnDAY28pLt9wBl'}
+  $http.defaults.headers.get = {'X-Mashape-Key': 'geSCWZkl7qmshvzcNYECQpmSeepVp1LqLqdjsnDAY28pLt9wBl'};
 
 }]);
 
 // config phase
 angular.module('app').config(['$httpProvider', function($httpProvider){
   // global loader for all $http calls
-  $httpProvider.interceptors.push('myInterceptor')
+  $httpProvider.interceptors.push('myInterceptor');
 
 }]);
+angular.module('app').filter('formatTxt',function(){
+  return function(str) {
+    return str.replace(/\s/g, '');
+  };
+
+});
 
 angular.module('app').factory('myInterceptor', function(){
   return {
     request: function(config){
-      // $('#global-loader').show()
+      $('#global-loader').show()
       return config;
     },
     response: function(response) {
-      // $('#global-loader').hide()
+      $('#global-loader').hide()
       return response;
     },
-  }
+  };
 });
 
 

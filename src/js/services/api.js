@@ -3,8 +3,8 @@ angular.module('app').service('API', ['$http', 'API_URL', 'YQL', function($http,
     this.currentCatagoryUrl = "";
 
     createselectQuery = function(url) {
-      return YQL+'?q='+encodeURIComponent('select * from json where url="'+url+'"')+'&format=json'
-    }
+      return YQL+'?q='+encodeURIComponent('select * from json where url="'+url+'"')+'&format=json';
+    };
 
     this.getData = function(url, options) {
       options = options || {};
@@ -13,23 +13,19 @@ angular.module('app').service('API', ['$http', 'API_URL', 'YQL', function($http,
         request += url;
       }
       if(options.catagory){
-        request += "?catagory="+options.catagory
+        request += "?catagory="+options.catagory;
       }
       // return promise object
-      return $http.get(API_URL+"/"+request)
-    }
+      return $http.get(API_URL+"/"+request);
+    };
 
     this.getTOIData = function(url) {
       var request = "";
-      debugger
       if(url){
-        request = createselectQuery(url)
+        request = createselectQuery(url);
       }
-      return $.getJSON(request)
-    }
-
-    console.log(API_URL)
+      return $.getJSON(request);
+    };
   }
-
-  return new Api()
+  return new Api();
 }]);
