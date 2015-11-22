@@ -3,7 +3,7 @@ angular.module('app', ['ui.router']);
 // Run phase
 angular.module('app').run(['$http', function($http){
 
-
+  delete $http.defaults.headers.common['X-Requested-With'];
   $http.defaults.headers.common.Accept = 'application/json';
   $http.defaults.headers = {'Access-Control-Allow-Origin' : '*'};
 

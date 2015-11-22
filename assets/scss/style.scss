@@ -59,6 +59,12 @@
 
 #news{
   .news-item{
+    h3{
+      width: 250px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+   }
     overflow: hidden;
     color: #fff;
     border: 2px #aeaeae solid;

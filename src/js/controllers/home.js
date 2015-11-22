@@ -10,6 +10,13 @@ angular.module('app').controller('home', ['$scope', '$state', '$filter', 'API', 
   };
 
   API.getData('feedurllist.cms',{'catagory':'city'}).then(function(catagories) {
+    angular.forEach(catagories.Item, function(catagory){
+      var catagoryName = $filter('formatTxt')(catagory);
+
+      API.catagories[catagoryName] = API.catagories.sectionurl
+      debugger
+    });
+
     vm.catagories = catagories;
   });
 

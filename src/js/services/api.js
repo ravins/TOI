@@ -1,6 +1,7 @@
 angular.module('app').service('API', ['$http', 'API_URL', 'YQL', function($http, API_URL, YQL) {
   function Api(){
     this.currentCatagoryUrl = "";
+    this.catagories = {};
 
     createselectQuery = function(url) {
       return YQL+'?q='+encodeURIComponent('select * from json where url="'+url+'"')+'&format=json';
@@ -20,6 +21,8 @@ angular.module('app').service('API', ['$http', 'API_URL', 'YQL', function($http,
     };
 
     this.getTOIData = function(url) {
+      $('#global-loader').show()
+
       var request = "";
       if(url){
         request = createselectQuery(url);
