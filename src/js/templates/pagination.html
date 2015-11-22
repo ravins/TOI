@@ -1,0 +1,14 @@
+<ul class="pagination" ng-show="count.length > 0">
+  <li ng-class="{'disabled': start==current}">
+    <a href="#" ng-click=" start==current || changePage(n-1)">«</a>
+  </li>
+
+  <li ng-repeat="n in count track by $index" ng-class="{'active':current==($index+1)}">
+    <a href="#" ng-click="current=n">{{$index+1}}</a>
+  </li>
+
+  <li ng-class="{'disabled': last == current}">
+    <a href="#" ng-click="last == current || changePage(n+1)">»</a>
+  </li>
+
+</ul>

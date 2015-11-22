@@ -1,0 +1,15 @@
+<div class="row"  id="news">
+  <!-- pagination directive for catagory news -->
+  <div pagination total-page="{{catagoryNewsCtrl.totalPages}}" current="catagoryNewsCtrl.pageNo"></div>
+
+  <div class="col-md-12">
+    <a href="#" ng-repeat="news in catagoryNewsCtrl.newsItems" ng-show="!result_not_found">
+      <div class="col-md-2 col-sm-2 catagory news-item" >
+        <h5>{{news.HeadLine}}</h5>
+        <img ng-src="{{news.Image.Photo}}" alt="{{news.PhotoCaption}}">
+        <small>{{news.PhotoCaption}}</small>
+      </div>
+    </a>
+    <h2 ng-show="result_not_found">No News In This Catagory</h2>
+  </div>
+</div>

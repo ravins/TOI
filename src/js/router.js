@@ -12,6 +12,19 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function($
     views: {
       '':{
           templateUrl: 'src/js/templates/layout.html',
+          controller: 'catagoryNews',
+          controllerAs: 'catagoryNewsCtrl',
+        },
+      'sidebar@catagory':{templateUrl: 'src/js/templates/sidebar.html'},
+      'content@catagory':{templateUrl: 'src/js/templates/catagory-news.html'}
+    }
+  });
+
+  $stateProvider.state('news', {
+    url: '/news?title',
+    views: {
+      '':{
+          templateUrl: 'src/js/templates/layout.html',
           controller: 'news',
           controllerAs: 'newsCtrl',
         },

@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router']);
+angular.module('app', ['ui.router', 'LocalStorageModule']);
 
 // Run phase
 angular.module('app').run(['$http', function($http){

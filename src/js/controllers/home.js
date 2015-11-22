@@ -1,4 +1,4 @@
-angular.module('app').controller('home', ['$scope', '$state', '$filter', 'API', function($scope, $state, $filter, API) {
+angular.module('app').controller('home', ['$scope', '$state', '$filter', 'API', 'localStorageService', function($scope, $state, $filter, API, localStorageService) {
   var vm = this;
   vm.catagories = {};
 
@@ -6,16 +6,20 @@ angular.module('app').controller('home', ['$scope', '$state', '$filter', 'API', 
     API.currentCatagoryUrl = newsUrl;
     var catagoryName = $filter('formatTxt')(catagory);
     $state.transitionTo('catagory', {name: catagoryName});
-    debugger;
   };
 
+  // remove all catagories from localstorage and fetch all
+  if(localStorageService.length()){
+    localStorageService.remove('catagories');
+  }
   API.getData('feedurllist.cms',{'catagory':'city'}).then(function(catagories) {
-    angular.forEach(catagories.Item, function(catagory){
-      var catagoryName = $filter('formatTxt')(catagory);
-
-      API.catagories[catagoryName] = API.catagories.sectionurl
-      debugger
+    angular.forEach(catagories.data.Item, function(catagory){
+      var catagoryName = $filter('formatTxt')(catagory.name);
+      API.catagories[catagoryName] = catagory.defaulturl;
     });
+
+    // save catagory:sectionUrl to localStorage, so we have quick reference of sectionUrl for a catagory
+    localStorageService.set("catagories", API.catagories );
 
     vm.catagories = catagories;
   });

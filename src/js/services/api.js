@@ -3,7 +3,8 @@ angular.module('app').service('API', ['$http', 'API_URL', 'YQL', function($http,
     this.currentCatagoryUrl = "";
     this.catagories = {};
 
-    createselectQuery = function(url) {
+    createselectQuery = function(url, options) {
+      var options = options || {};
       return YQL+'?q='+encodeURIComponent('select * from json where url="'+url+'"')+'&format=json';
     };
 
