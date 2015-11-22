@@ -1,11 +1,8 @@
 <div class="row"  id="news">
   <div class="col-md-12">
-    <a href="#" ng-repeat="news in newsCtrl.newsItems" ng-show="!result_not_found">
-      <div class="col-md-2 col-sm-2 catagory news-item" >
-        <h5>{{news.HeadLine}}</h5>
-        <img ng-src="{{news.Image.Photo}}" alt="{{news.PhotoCaption}}">
-        <small>{{news.PhotoCaption}}</small>
-      </div>
-    </a>
+    <h1>{{newsCtrl.news.HeadLine}}</h1>
+    <img ng-src="{{newsCtrl.news.Image.Photo}}" alt="{{newsCtrl.news.PhotoCaption}}">
+    <span></span>
+    <p>{{newsCtrl.news.Story}}</p>
   </div>
 </div>

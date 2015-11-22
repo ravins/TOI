@@ -4,8 +4,14 @@ angular.module('app').service('API', ['$http', 'API_URL', 'YQL', function($http,
     this.catagories = {};
 
     createselectQuery = function(url, options) {
-      var options = options || {};
-      return YQL+'?q='+encodeURIComponent('select * from json where url="'+url+'"')+'&format=json';
+      var options = options || {},
+        page="";
+
+      if(options.page){
+        page += "&page="+options.page;
+      }
+      var query =  YQL+'?q='+encodeURIComponent('select * from json where url="'+url+page+'"')+'&format=json';
+      return query;
     };
 
     this.getData = function(url, options) {
@@ -21,12 +27,12 @@ angular.module('app').service('API', ['$http', 'API_URL', 'YQL', function($http,
       return $http.get(API_URL+"/"+request);
     };
 
-    this.getTOIData = function(url) {
+    this.getTOIData = function(url, options) {
       $('#global-loader').show()
 
       var request = "";
       if(url){
-        request = createselectQuery(url);
+        request = createselectQuery(url, options);
       }
       return $.getJSON(request);
     };

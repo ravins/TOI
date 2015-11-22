@@ -4,7 +4,7 @@
   </li>
 
   <li ng-repeat="n in count track by $index" ng-class="{'active':current==($index+1)}">
-    <a href="#" ng-click="current=n">{{$index+1}}</a>
+    <a href="javascript:void(0)" ng-click="updatePage($index+1)">{{$index+1}}</a>
   </li>
 
   <li ng-class="{'disabled': last == current}">

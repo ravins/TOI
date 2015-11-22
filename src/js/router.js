@@ -8,12 +8,12 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function($
   });
 
   $stateProvider.state('catagory', {
-    url: '/catagory?name',
+    url: '/catagory/:name',
     views: {
       '':{
           templateUrl: 'src/js/templates/layout.html',
           controller: 'catagoryNews',
-          controllerAs: 'catagoryNewsCtrl',
+          controllerAs: 'catagoryNews',
         },
       'sidebar@catagory':{templateUrl: 'src/js/templates/sidebar.html'},
       'content@catagory':{templateUrl: 'src/js/templates/catagory-news.html'}
@@ -21,15 +21,15 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function($
   });
 
   $stateProvider.state('news', {
-    url: '/news?title',
+    url: '/news/:catagory/:id',
     views: {
       '':{
           templateUrl: 'src/js/templates/layout.html',
           controller: 'news',
           controllerAs: 'newsCtrl',
         },
-      'sidebar@catagory':{templateUrl: 'src/js/templates/sidebar.html'},
-      'content@catagory':{templateUrl: 'src/js/templates/news.html'}
+      'sidebar@news':{templateUrl: 'src/js/templates/sidebar.html'},
+      'content@news':{templateUrl: 'src/js/templates/news.html'}
     }
   });
 

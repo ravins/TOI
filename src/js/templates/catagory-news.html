@@ -1,9 +1,9 @@
-<div class="row"  id="news">
+<div class="row"  id="catagory-news">
   <!-- pagination directive for catagory news -->
-  <div pagination total-page="{{catagoryNewsCtrl.totalPages}}" current="catagoryNewsCtrl.pageNo"></div>
+  <div pagination total-page="{{catagoryNews.totalPages}}" current="catagoryNews.current"></div>
 
   <div class="col-md-12">
-    <a href="#" ng-repeat="news in catagoryNewsCtrl.newsItems" ng-show="!result_not_found">
+    <a href="#/news/{{catagoryNews.catagory}}/{{news.NewsItemId}}" ng-repeat="news in catagoryNews.newsItems" ng-show="!result_not_found">
       <div class="col-md-2 col-sm-2 catagory news-item" >
         <h5>{{news.HeadLine}}</h5>
         <img ng-src="{{news.Image.Photo}}" alt="{{news.PhotoCaption}}">

@@ -1,8 +1,7 @@
 <nav>
   <ul>
-    <li><a href="#">link</a></li>
-    <li><a href="#">link</a></li>
-    <li><a href="#">link</a></li>
-    <li><a href="#">link</a></li>
+    <li ng-repeat="catagory for (key,value) in catagories">
+      <a href="#/catagory/{{catagory.key}}">link</a>
+    </li>
   </ul>
 </nav>

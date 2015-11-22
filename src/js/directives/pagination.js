@@ -5,7 +5,11 @@ angular.module('app').directive('pagination', function() {
 
     function buildPagination() {
      $scope.count = new Array(parseInt($scope.totalPage));
-      current = parseInt($scope.page, 10);
+    }
+
+    $scope.updatePage = function(page) {
+      debugger
+      $scope.current = page;
     }
 
     $scope.$watch('totalPage', function(newVal, oldVal) {

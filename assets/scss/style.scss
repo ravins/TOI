@@ -57,7 +57,7 @@
     -webkit-transform: scale(1); } }
 
 
-#news{
+#catagory-news{
   .news-item{
     h3{
       width: 250px;
@@ -76,5 +76,13 @@
       width: 180px;
       height: 180px;
     }
+  }
+}
+#news{
+  img{
+    box-shadow: 7px 4px 45px -6px rgba(0,0,0,0.75);
+    float: left;
+    padding: 10px;
+    margin: 20px;
   }
 }
