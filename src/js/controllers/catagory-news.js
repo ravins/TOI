@@ -1,5 +1,4 @@
 angular.module('app').controller('catagoryNews', ['API', '$stateParams', 'localStorageService','$scope', function(API, $stateParams, localStorageService, $scope){
-  console.log('catagory controller'+ API.currentCatagoryUrl);
   var catagoryNews = this;
 
   catagoryNews.newsItems = [];
