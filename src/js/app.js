@@ -27,11 +27,13 @@ angular.module('app').filter('formatTxt',function(){
 angular.module('app').factory('myInterceptor', function(){
   return {
     request: function(config){
-      $('#global-loader').show()
+      $('#global-loader').show();
       return config;
     },
     response: function(response) {
-      $('#global-loader').hide()
+      if(response.data.Item){
+        $('#global-loader').hide();
+      }
       return response;
     },
   };
